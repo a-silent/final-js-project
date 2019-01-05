@@ -245,12 +245,7 @@ class Welcome extends HTMLElement {
 			this.inputEmail.value = email
 			return
 		}
-		
-		document.cookie = `n=${name}`
-		document.cookie = `e=${email}`
 		document.cookie = `p=${pswd}`
-		
-		
 		fetch("http://localhost:3000/users", {
 			method: "POST",
 			mode: "cors",
@@ -264,17 +259,12 @@ class Welcome extends HTMLElement {
 				"Content-Type": "application/json"
 			}
 		})
-			.then (response => {
-				if (response.status !== 201) return
-				localStorage.setItem("_n", name)
-				localStorage.setItem("_e", email)
-				localStorage.setItem("_p", pswd)
-			})
 	}
 	
 	async logLoadData () {
 		if (!this.validateInput()) return
 		let email = this.inputEmail.value.trim()
+		let pswd = Sha256.hash (this.inputPassword.value)
 		let users = await fetch("http://localhost:3000/users")
 			.then (response => response.json())
 		let user = users.find(
@@ -285,6 +275,7 @@ class Welcome extends HTMLElement {
 			this.inputEmail.value = email
 			return
 		}
+		document.cookie = `p=${pswd}`
 	}
 }
 

@@ -1,29 +1,6 @@
 {
   "users": [
-    {
-      "name": "aaa",
-      "email": "aaa",
-      "password": "9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0",
-      "id": 1
-    },
-    {
-      "name": "zzz",
-      "email": "zzz",
-      "password": "17f165d5a5ba695f27c023a83aa2b3463e23810e360b7517127e90161eebabda",
-      "id": 2
-    },
-    {
-      "name": "ppp",
-      "email": "ppp",
-      "password": "c4289629b08bc4d61411aaa6d6d4a0c3c5f8c1e848e282976e29b6bed5aeedc7",
-      "id": 3
-    },
-    {
-      "name": "mmm",
-      "email": "mmm",
-      "password": "8b7293f6dd93853c83bf8c87ec5349a41789fa166a9431f108edb538e6fd82fd",
-      "id": 4
-    }
+    
   ],
   "data": [
     {

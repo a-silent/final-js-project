@@ -235,6 +235,7 @@ class Welcome extends HTMLElement {
 		let name = this.inputName.value.trim()
 		let email = this.inputEmail.value.trim()
 		let pswd = Sha256.hash (this.inputPassword.value)
+		let id = new Date().getTime() + Math.floor ( Math.random() * 1000 )
 		let users = await fetch("http://localhost:3000/users")
 			.then (response => response.json())
 		let user = users.find(
@@ -252,7 +253,8 @@ class Welcome extends HTMLElement {
 			body: JSON.stringify({
 				name: name,
 				email: email,
-				password: pswd
+				password: pswd,
+				userId: id
 			}),
 			headers: {
 				"Content-Type": "application/json"
@@ -263,6 +265,10 @@ class Welcome extends HTMLElement {
 				document.cookie = `e=${email}`
 				document.cookie = `p=${pswd}`
 			})
+		let newUser = fetch ("http://localhost:3000/users", {
+			method: "GET",
+			mode: "cors"
+		})
 	}
 	
 	async logLoadData () {

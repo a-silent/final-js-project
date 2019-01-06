@@ -270,7 +270,10 @@ class Welcome extends HTMLElement {
 			body: JSON.stringify({
 				userId: id,
 				content: []
-			})
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
 		})
 			.then(() => {
 				this.btnLog.dispatchEvent(new Event ("click"))

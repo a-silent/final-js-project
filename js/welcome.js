@@ -297,6 +297,7 @@ class Welcome extends HTMLElement {
 		}
 		document.cookie = `e=${email}`
 		document.cookie = `p=${pswd}`
+		location.hash = "todo"
 	}
 }
 

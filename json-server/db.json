@@ -1,66 +1,18 @@
 {
   "users": [
     {
-      "name": "aaa",
-      "email": "aaa",
-      "password": "9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0",
-      "userId": 1546794577848,
+      "name": "Andrii",
+      "email": "andrii@gmail.com",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "userId": 1546803167976,
       "id": 1
-    },
-    {
-      "name": "bbb",
-      "email": "bbb",
-      "password": "3e744b9dc39389baf0c5a0660589b8402f3dbb49b89b3e75f2c9355852a3c677",
-      "userId": 1546794602314,
-      "id": 2
-    },
-    {
-      "name": "fdsff",
-      "email": "sdfds",
-      "password": "51546eb53e8439f156acd2a7b7301cadec13d0ff85f46ff0cc97005ae16776b7",
-      "userId": 1546795197246,
-      "id": 3
-    },
-    {
-      "name": "dgfgfg",
-      "email": "dfgdfg",
-      "password": "10d2083eee3399d51bae31d6f70acb9eebc43939f18da425aa8c28762f638ca6",
-      "userId": 1546795254667,
-      "id": 4
-    },
-    {
-      "name": "fdsfsd",
-      "email": "fsdfds",
-      "password": "f82caf65b481bce79a68fe76b88a0ee032205caf1bae23f1e51eb8395cadd86d",
-      "userId": 1546800479184,
-      "id": 5
     }
   ],
   "data": [
     {
-      "userId": 1546794577848,
+      "userId": 1546803167976,
       "content": [],
       "id": 1
-    },
-    {
-      "userId": 1546794602314,
-      "content": [],
-      "id": 2
-    },
-    {
-      "userId": 1546795197246,
-      "content": [],
-      "id": 3
-    },
-    {
-      "userId": 1546795254667,
-      "content": [],
-      "id": 4
-    },
-    {
-      "userId": 1546800479184,
-      "content": [],
-      "id": 5
     }
   ]
 }

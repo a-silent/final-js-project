@@ -70,8 +70,10 @@ class Todo extends HTMLElement {
 		this.dayHeader.contentEditable = "true"
 		this.dayHeader.onfocus = event =>
 			event.target.innerText = null
-		this.dayHeader.onblur = event =>
+		this.dayHeader.onblur = event => {
 			event.target.innerText = event.target.innerText || "Important"
+			this.card.content.listName = event.target.innerText
+		}
 		this.dayHeader.onkeypress = event => {
 			if (event.which === 13) {
 				event.preventDefault()
@@ -80,7 +82,17 @@ class Todo extends HTMLElement {
 		}
 		this.input = this.createElem("input", this.card)
 		this.input.placeholder = "event..."
-		this.input.onchange = () => this.addEvent(this.input.value)
+		this.input.onchange = (event) => {
+			let text = event.target.value
+			if (this.card.content.events.includes(text)) return
+			this.card.content.events.push(text)
+			this.addEvent(text)
+		}
+		
+		this.card.content = {
+			listName: this.dayHeader.innerText,
+			events: []
+		}
 	}
 	
 	createElem ( tagName, container ) {

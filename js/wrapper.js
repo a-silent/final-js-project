@@ -99,6 +99,20 @@ class Wrapper extends HTMLElement {
 			)
 	}
 	
+	getCookies () {
+		let res = document.cookie
+			.split ( "; " )
+			.map (
+				x =>  {
+					var tmp = x.split ( "=" )
+					var elem = {}
+					elem [ tmp [0] ] = tmp [1]
+					return elem
+				}
+			)
+		return Object.assign ( {}, ...res )
+	}
+	
 	addCard () {
 		customElements.whenDefined("todo-elem")
 			.then (() => {
@@ -120,10 +134,31 @@ class Wrapper extends HTMLElement {
 					} )
 
 			})
+		console.log (this.container.querySelectorAll("todo-elem"))
 	}
 	
-	
-	
+	async saveCards () {
+		let cookie = this.getCookies()
+		let users = await fetch ("http://localhost:3000/users")
+			.then (response => response.json())
+		let user = users.find(
+			user => {
+				return user.email === cookie.e &&
+					user.password === cookie.p
+			}
+		)
+		fetch ("http://localhost:3000/data", {
+			method: "PUT",
+			mode: "cors",
+			body: JSON.stringify({
+				userId: user.userId,
+				content: ["123"]
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
+	}
 }
 
 customElements.define("wrapper-elem", Wrapper)

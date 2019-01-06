@@ -1,7 +1,7 @@
 class Todo extends HTMLElement {
 	constructor () {
 		super()
-		this.card = this.createElem("section")
+		this.card = this.createElem("div")
 		let shadow = this.attachShadow({mode: "open"})
 		shadow.appendChild( this.card )
 		let style = shadow.appendChild(
@@ -23,13 +23,14 @@ class Todo extends HTMLElement {
 				border-radius: 5px;
 			}
 			
-			section {
+			div {
 				display: inline-block;
-				max-width: 300px;
+				max-width: 270px;
 				padding: 10px 10px 5px 10px;
 				border: 1px dotted #8AB185;
 				background-color: #F2F7F3;
 				margin: 10px;
+				position: relative;
 			}
 			
 			h2 {
@@ -93,6 +94,14 @@ class Todo extends HTMLElement {
 		let elem = this.createElem("p", this.card)
 		elem.innerText = text
 		this.input.value = null
+	}
+	
+	removeEvent () {
+	
+	}
+	
+	removeCard () {
+	
 	}
 }
 

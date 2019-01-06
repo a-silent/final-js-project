@@ -6,17 +6,17 @@
 	// 	})
 
 
-	customElements.whenDefined("welcome-elem")
-		.then (() => {
-			document.body.appendChild(
-				document.createElement("welcome-elem")
-			)
-		})
-	
-	// customElements.whenDefined("todo-elem")
+	// customElements.whenDefined("welcome-elem")
 	// 	.then (() => {
 	// 		document.body.appendChild(
-	// 			document.createElement("todo-elem")
+	// 			document.createElement("welcome-elem")
 	// 		)
 	// 	})
+	
+	customElements.whenDefined("wrapper-elem")
+		.then (() => {
+			document.body.appendChild(
+				document.createElement("wrapper-elem")
+			)
+		})
 })()

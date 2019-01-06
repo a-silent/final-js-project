@@ -245,7 +245,6 @@ class Welcome extends HTMLElement {
 			this.inputEmail.value = email
 			return
 		}
-		document.cookie = `p=${pswd}`
 		fetch("http://localhost:3000/users", {
 			method: "POST",
 			mode: "cors",
@@ -259,6 +258,11 @@ class Welcome extends HTMLElement {
 				"Content-Type": "application/json"
 			}
 		})
+			.then (response => {
+				if (response.status !== 201) return
+				document.cookie = `e=${email}`
+				document.cookie = `p=${pswd}`
+			})
 	}
 	
 	async logLoadData () {
@@ -275,6 +279,7 @@ class Welcome extends HTMLElement {
 			this.inputEmail.value = email
 			return
 		}
+		document.cookie = `e=${email}`
 		document.cookie = `p=${pswd}`
 	}
 }

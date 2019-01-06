@@ -235,7 +235,7 @@ class Welcome extends HTMLElement {
 		let name = this.inputName.value.trim()
 		let email = this.inputEmail.value.trim()
 		let pswd = Sha256.hash (this.inputPassword.value)
-		let id = new Date().getTime() + Math.floor ( Math.random() * 1000 )
+		let userId = new Date().getTime() + Math.floor ( Math.random() * 1000 )
 		let users = await fetch("http://localhost:3000/users")
 			.then (response => response.json())
 		let user = users.find(
@@ -246,14 +246,14 @@ class Welcome extends HTMLElement {
 			this.inputEmail.value = email
 			return
 		}
-		await fetch("http://localhost:3000/users", {
+		fetch("http://localhost:3000/users", {
 			method: "POST",
 			mode: "cors",
 			body: JSON.stringify({
 				name: name,
 				email: email,
 				password: pswd,
-				userId: id
+				userId: userId
 			}),
 			headers: {
 				"Content-Type": "application/json"
@@ -261,24 +261,24 @@ class Welcome extends HTMLElement {
 		})
 			.then (response => {
 				if (response.status !== 201) return
-				document.cookie = `e=${email}`
-				document.cookie = `p=${pswd}`
+				fetch ("http://localhost:3000/data", {
+					method: "POST",
+					mode: "cors",
+					body: JSON.stringify({
+						userId: userId,
+						content: []
+					}),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then((response) => {
+						if (response.status !== 201) return
+						this.btnLog.dispatchEvent(new Event ("click"))
+						this.inputEmail.value = email
+					})
 			})
-		fetch ("http://localhost:3000/data", {
-			method: "POST",
-			mode: "cors",
-			body: JSON.stringify({
-				userId: id,
-				content: []
-			}),
-			headers: {
-				"Content-Type": "application/json"
-			}
-		})
-			.then(() => {
-				this.btnLog.dispatchEvent(new Event ("click"))
-				this.inputEmail.value = email
-			})
+		
 	}
 	
 	async logLoadData () {

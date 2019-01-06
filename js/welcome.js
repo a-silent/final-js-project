@@ -246,10 +246,9 @@ class Welcome extends HTMLElement {
 			this.inputEmail.value = email
 			return
 		}
-		fetch("http://localhost:3000/users", {
+		await fetch("http://localhost:3000/users", {
 			method: "POST",
 			mode: "cors",
-			credentials: "include",
 			body: JSON.stringify({
 				name: name,
 				email: email,
@@ -265,10 +264,18 @@ class Welcome extends HTMLElement {
 				document.cookie = `e=${email}`
 				document.cookie = `p=${pswd}`
 			})
-		let newUser = fetch ("http://localhost:3000/users", {
-			method: "GET",
-			mode: "cors"
+		fetch ("http://localhost:3000/data", {
+			method: "POST",
+			mode: "cors",
+			body: JSON.stringify({
+				userId: id,
+				content: []
+			})
 		})
+			.then(response => {
+				this.btnLog.dispatchEvent(new Event ("click"))
+				this.inputEmail.value = email
+			})
 	}
 	
 	async logLoadData () {

@@ -272,7 +272,7 @@ class Welcome extends HTMLElement {
 				content: []
 			})
 		})
-			.then(response => {
+			.then(() => {
 				this.btnLog.dispatchEvent(new Event ("click"))
 				this.inputEmail.value = email
 			})

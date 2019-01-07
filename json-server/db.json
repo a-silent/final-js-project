@@ -10,30 +10,7 @@
   "data": [
     {
       "userId": 1546822951123,
-      "content": [
-        {
-          "listName": "Important",
-          "events": [
-            "1",
-            "2",
-            "23",
-            "3",
-            "4"
-          ]
-        },
-        {
-          "listName": "Important",
-          "events": [
-            "1"
-          ]
-        },
-        {
-          "listName": "Important",
-          "events": [
-            "1"
-          ]
-        }
-      ]
+      "content": []
     }
   ]
 }

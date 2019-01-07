@@ -80,7 +80,7 @@ class Todo extends HTMLElement {
 		this.dayHeader.onblur = event => {
 			event.target.innerText = event.target.innerText || "Important"
 			this.card.content.listName = event.target.innerText
-			this.card.dispatchEvent(new Event("myEvent"))
+			document.body.dispatchEvent(new Event("myEvent"))
 		}
 		this.dayHeader.onkeypress = event => {
 			if (event.which === 13) {
@@ -101,7 +101,7 @@ class Todo extends HTMLElement {
 			let elem = this.createElem("p", this.card)
 			elem.innerText = event.target.value
 			this.card.content.events.push(event.target.value)
-			this.card.dispatchEvent(new Event("myEvent"))
+			document.body.dispatchEvent(new Event("myEvent"))
 			event.target.value = null
 		}
 		

@@ -198,6 +198,7 @@ class Wrapper extends HTMLElement {
 					}
 				}
 			})
+		this.btnSave.style.border = "3px solid #F1FFE7"
 	}
 }
 

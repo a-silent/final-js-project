@@ -196,8 +196,6 @@ class Wrapper extends HTMLElement {
 						card.input.dispatchEvent(new Event("change"))
 					}
 				}
-				
-				console.dir(card)
 			})
 		console.log (userData)
 	}

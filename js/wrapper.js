@@ -196,7 +196,7 @@ class Wrapper extends HTMLElement {
 					}
 				}
 			})
-		document.body.addEventListener("myEvent", this.listen)
+		document.body.addEventListener("myEvent", this.listen.bind(this))
 	}
 }
 

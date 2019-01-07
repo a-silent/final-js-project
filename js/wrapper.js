@@ -105,8 +105,8 @@ class Wrapper extends HTMLElement {
 			.split ( "; " )
 			.map (
 				x => {
-					var tmp = x.split ( "=" )
-					var elem = {}
+					let tmp = x.split ( "=" )
+					let elem = {}
 					elem [ tmp [0] ] = tmp [1]
 					return elem
 				}
@@ -180,11 +180,11 @@ class Wrapper extends HTMLElement {
 			}
 		)
 		if (!user) return
+		document.body.addEventListener("myEvent", this.listen.bind(this))
 		let userData = await fetch (`http://localhost:3000/data/${user.userId}`)
 			.then (response => response.json())
 		customElements.whenDefined("todo-elem")
 			.then (() => {
-				document.body.addEventListener("myEvent", this.listen.bind(this))
 				if (userData === []) return
 				for (let item of userData.content){
 					let card = this.wrapper.appendChild(
@@ -197,8 +197,8 @@ class Wrapper extends HTMLElement {
 						card.input.dispatchEvent(new Event("change"))
 					}
 				}
+				this.btnSave.style.border = "3px solid #F1FFE7"
 			})
-		this.btnSave.style.border = "3px solid #F1FFE7"
 	}
 }
 

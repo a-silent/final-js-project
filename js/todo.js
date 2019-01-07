@@ -99,7 +99,7 @@ class Todo extends HTMLElement {
 			if (this.card.content.events.includes(event.target.value)) return
 			let elem = this.createElem("p", this.card)
 			elem.innerText = event.target.value
-			this.card.content.events.unshift(event.target.value)
+			this.card.content.events.push(event.target.value)
 			event.target.value = null
 		}
 		

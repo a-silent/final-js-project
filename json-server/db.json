@@ -10,45 +10,7 @@
   "data": [
     {
       "userId": 1546822951123,
-      "content": [
-        {
-          "listName": "Important",
-          "events": [
-            "123"
-          ]
-        },
-        {
-          "listName": "point to when",
-          "events": [
-            "5",
-            "4",
-            "3",
-            "2",
-            "1"
-          ]
-        },
-        {
-          "listName": "test",
-          "events": [
-            "petya",
-            "vasya"
-          ]
-        },
-        {
-          "listName": "point to when",
-          "events": []
-        },
-        {
-          "listName": "zzz",
-          "events": [
-            "5",
-            "4",
-            "3",
-            "2",
-            "1"
-          ]
-        }
-      ]
+      "content": []
     }
   ]
 }

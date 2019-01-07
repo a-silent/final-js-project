@@ -10,7 +10,31 @@
   "data": [
     {
       "userId": 1546822951123,
-      "content": []
+      "content": [
+        {
+          "listName": "Important",
+          "events": [
+            "123"
+          ]
+        },
+        {
+          "listName": "point to when",
+          "events": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        },
+        {
+          "listName": "test",
+          "events": [
+            "vasya",
+            "petya"
+          ]
+        }
+      ]
     }
   ]
 }

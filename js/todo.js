@@ -63,6 +63,13 @@ class Todo extends HTMLElement {
 				background-color: #F2F7F3;
 				margin: 0 0 5px 0;
 			}
+			
+			button {
+				
+				min-width: 100%;
+				padding: 5px;
+				
+			}
 		`
 
 		this.dayHeader = this.createElem ("h2", this.card)
@@ -82,12 +89,17 @@ class Todo extends HTMLElement {
 		}
 		this.input = this.createElem("input", this.card)
 		this.input.placeholder = "event..."
-		this.input.onchange = (event) => {
+		this.input.onchange = event => {
 			let text = event.target.value
 			if (this.card.content.events.includes(text)) return
 			this.card.content.events.push(text)
 			this.addEvent(text)
 		}
+		
+		this.deleteCard = this.createElem("button", this.card)
+		this.deleteCard.innerText = "Remove card"
+		this.deleteCard.onclick = () => this.card.remove()
+		
 		
 		this.card.content = {
 			listName: this.dayHeader.innerText,
@@ -104,16 +116,9 @@ class Todo extends HTMLElement {
 	
 	addEvent ( text ) {
 		let elem = this.createElem("p", this.card)
+		// let close = this.createElem("span", elem)
 		elem.innerText = text
 		this.input.value = null
-	}
-	
-	removeEvent () {
-	
-	}
-	
-	removeCard () {
-	
 	}
 }
 

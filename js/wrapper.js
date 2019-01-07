@@ -107,7 +107,7 @@ class Wrapper extends HTMLElement {
 		let res = document.cookie
 			.split ( "; " )
 			.map (
-				x =>  {
+				x => {
 					var tmp = x.split ( "=" )
 					var elem = {}
 					elem [ tmp [0] ] = tmp [1]
@@ -142,7 +142,6 @@ class Wrapper extends HTMLElement {
 	}
 	
 	async saveCards () {
-		debugger
 		let cookie = this.cookies()
 		let users = await fetch ("http://localhost:3000/users")
 			.then (response => response.json())
@@ -167,6 +166,22 @@ class Wrapper extends HTMLElement {
 				"Content-Type": "application/json"
 			}
 		})
+	}
+	
+	async addAllCards () {
+		let cookie = this.cookies()
+		let users = await fetch ("http://localhost:3000/users")
+			.then (response => response.json())
+		let user = users.find(
+			user => {
+				return user.email === cookie.e &&
+					user.password === cookie.p
+			}
+		)
+		if (!user) return
+		let userData = await fetch (`http://localhost:3000/data/${user.userId}`)
+			.then (response => response.json())
+		console.log (userData)
 	}
 }
 

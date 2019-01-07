@@ -91,10 +91,6 @@ class Wrapper extends HTMLElement {
 		this.cookies = this.getCookies
 		
 		this.addAllCards()
-		
-		console.dir (shadow)
-		console.dir (this)
-		console.dir (this.container)
 	}
 	
 	createElem ( tagName, container ) {
@@ -118,6 +114,10 @@ class Wrapper extends HTMLElement {
 		return Object.assign ( {}, ...res )
 	}
 	
+	listen () {
+		this.btnSave.style.border = "red"
+	}
+	
 	addCard () {
 		customElements.whenDefined("todo-elem")
 			.then (() => {
@@ -139,7 +139,6 @@ class Wrapper extends HTMLElement {
 					} )
 
 			})
-		console.log (this.container.querySelectorAll("todo-elem"))
 	}
 	
 	async saveCards () {
@@ -197,7 +196,7 @@ class Wrapper extends HTMLElement {
 					}
 				}
 			})
-		console.log (userData)
+		this.wrapper.addEventListener("myEvent", this.listen)
 	}
 }
 

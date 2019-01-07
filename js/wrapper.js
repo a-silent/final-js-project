@@ -182,6 +182,13 @@ class Wrapper extends HTMLElement {
 		if (!user) return
 		let userData = await fetch (`http://localhost:3000/data/${user.userId}`)
 			.then (response => response.json())
+		customElements.whenDefined("todo-elem")
+			.then (() => {
+				let card = this.wrapper.appendChild(
+					document.createElement("todo-elem")
+				)
+				console.dir(card)
+			})
 		console.log (userData)
 	}
 }

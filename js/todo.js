@@ -87,19 +87,20 @@ class Todo extends HTMLElement {
 				event.target.dispatchEvent(new Event("blur"))
 			}
 		}
-		this.input = this.createElem("input", this.card)
-		this.input.placeholder = "event..."
-		this.input.onchange = event => this.addEvent(event.target.value)
-		
-		this.deleteCard = this.createElem("button", this.card)
-		this.deleteCard.innerText = "Remove card"
-		this.deleteCard.onclick = () => this.card.remove()
-		
 		
 		this.card.content = {
 			listName: this.dayHeader.innerText,
 			events: []
 		}
+		
+		this.input = this.createElem("input", this.card)
+		this.input.placeholder = "event..."
+		this.input.onchange = () => this.addEvent(this.input.value)
+		
+		this.deleteCard = this.createElem("button", this.card)
+		this.deleteCard.innerText = "Remove card"
+		this.deleteCard.onclick = () => this.card.remove()
+		
 	}
 	
 	createElem ( tagName, container ) {

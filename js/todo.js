@@ -89,12 +89,7 @@ class Todo extends HTMLElement {
 		}
 		this.input = this.createElem("input", this.card)
 		this.input.placeholder = "event..."
-		this.input.onchange = event => {
-			let text = event.target.value
-			if (this.card.content.events.includes(text)) return
-			this.card.content.events.push(text)
-			this.addEvent(text)
-		}
+		this.input.onchange = event => this.addEvent(event.target.value)
 		
 		this.deleteCard = this.createElem("button", this.card)
 		this.deleteCard.innerText = "Remove card"
@@ -115,9 +110,10 @@ class Todo extends HTMLElement {
 	}
 	
 	addEvent ( text ) {
+		if (this.card.content.events.includes(text)) return
 		let elem = this.createElem("p", this.card)
-		// let close = this.createElem("span", elem)
 		elem.innerText = text
+		this.card.content.events.unshift(text)
 		this.input.value = null
 	}
 }

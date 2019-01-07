@@ -184,9 +184,19 @@ class Wrapper extends HTMLElement {
 			.then (response => response.json())
 		customElements.whenDefined("todo-elem")
 			.then (() => {
-				let card = this.wrapper.appendChild(
-					document.createElement("todo-elem")
-				)
+				if (userData === []) return
+				for (let item of userData.content){
+					let card = this.wrapper.appendChild(
+						document.createElement("todo-elem")
+					)
+					card.dayHeader.innerText = item.listName
+					card.dayHeader.dispatchEvent(new Event("blur"))
+					for (let event of item.events) {
+						card.input.innerText = event
+						card.input.dispatchEvent(new Event("change"))
+					}
+				}
+				
 				console.dir(card)
 			})
 		console.log (userData)

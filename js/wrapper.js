@@ -142,6 +142,7 @@ class Wrapper extends HTMLElement {
 	}
 	
 	async saveCards () {
+		debugger
 		let cookie = this.cookies()
 		let users = await fetch ("http://localhost:3000/users")
 			.then (response => response.json())

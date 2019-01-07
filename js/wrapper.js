@@ -115,7 +115,7 @@ class Wrapper extends HTMLElement {
 	}
 	
 	listen () {
-		this.btnSave.style.border = "red"
+		this.btnSave.style.border = "3px solid red"
 	}
 	
 	addCard () {

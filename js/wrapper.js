@@ -137,7 +137,7 @@ class Wrapper extends HTMLElement {
 						top: 0,
 						ease: Back.easeOut
 					} )
-
+				document.body.dispatchEvent(new Event("myEvent"))
 			})
 	}
 	

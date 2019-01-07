@@ -107,7 +107,10 @@ class Todo extends HTMLElement {
 		
 		this.deleteCard = this.createElem("button", this.card)
 		this.deleteCard.innerText = "Remove card"
-		this.deleteCard.onclick = () => this.remove()
+		this.deleteCard.onclick = () => {
+			this.remove()
+			document.body.dispatchEvent(new Event("myEvent"))
+		}
 		
 	}
 	

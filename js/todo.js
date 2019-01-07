@@ -95,7 +95,13 @@ class Todo extends HTMLElement {
 		
 		this.input = this.createElem("input", this.card)
 		this.input.placeholder = "event..."
-		this.input.onchange = () => this.addEvent(this.input.value)
+		this.input.onchange = (event) => {
+			if (this.card.content.events.includes(event.target.value)) return
+			let elem = this.createElem("p", this.card)
+			elem.innerText = event.target.value
+			this.card.content.events.unshift(event.target.value)
+			event.target.value = null
+		}
 		
 		this.deleteCard = this.createElem("button", this.card)
 		this.deleteCard.innerText = "Remove card"

@@ -166,7 +166,7 @@ class Wrapper extends HTMLElement {
 				"Content-Type": "application/json"
 			}
 		})
-			.then(() => this.btnSave.style.border = "3px solid #F1FFE7")
+			.then(() => this.btnSave.style.color = "#F1FFE7")
 	}
 	
 	async addAllCards () {

@@ -90,6 +90,7 @@ class Wrapper extends HTMLElement {
 		
 		this.cookies = this.getCookies
 		
+		this.addAllCards()
 		
 		console.dir (shadow)
 		console.dir (this)

@@ -192,7 +192,7 @@ class Wrapper extends HTMLElement {
 					card.dayHeader.innerText = item.listName
 					card.dayHeader.dispatchEvent(new Event("blur"))
 					for (let event of item.events) {
-						card.input.innerText = event
+						card.input.value = event
 						card.input.dispatchEvent(new Event("change"))
 					}
 				}

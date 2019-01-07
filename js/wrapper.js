@@ -115,7 +115,7 @@ class Wrapper extends HTMLElement {
 	}
 	
 	listen () {
-		this.btnSave.style.border = "3px solid red"
+		this.btnSave.style.color = "red"
 	}
 	
 	addCard () {
@@ -197,7 +197,7 @@ class Wrapper extends HTMLElement {
 						card.input.dispatchEvent(new Event("change"))
 					}
 				}
-				this.btnSave.style.border = "3px solid #F1FFE7"
+				this.btnSave.style.color = "#F1FFE7"
 			})
 	}
 }

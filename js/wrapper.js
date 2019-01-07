@@ -83,9 +83,13 @@ class Wrapper extends HTMLElement {
 		this.btnSave = this.createElem("button", this.buttons)
 		this.btnSave.id = "btnSave"
 		this.btnSave.innerText = "Save all"
+		this.btnSave.onclick = this.saveCards.bind(this)
 		
 		this.wrapper = this.createElem("div", this.container)
 		this.wrapper.id = "wrapper"
+		
+		this.cookies = this.getCookies
+		
 		
 		console.dir (shadow)
 		console.dir (this)
@@ -138,7 +142,7 @@ class Wrapper extends HTMLElement {
 	}
 	
 	async saveCards () {
-		let cookie = this.getCookies()
+		let cookie = this.cookies()
 		let users = await fetch ("http://localhost:3000/users")
 			.then (response => response.json())
 		let user = users.find(
@@ -147,12 +151,16 @@ class Wrapper extends HTMLElement {
 					user.password === cookie.p
 			}
 		)
-		fetch ("http://localhost:3000/data", {
-			method: "PUT",
+		if (!user) return
+		let cards = []
+		for (let item of this.wrapper.querySelectorAll("todo-elem")) {
+			cards.push(item.card.content)
+		}
+		fetch (`http://localhost:3000/data/${user.userId}`, {
+			method: "PATCH",
 			mode: "cors",
 			body: JSON.stringify({
-				userId: user.userId,
-				content: ["123"]
+				content: cards
 			}),
 			headers: {
 				"Content-Type": "application/json"

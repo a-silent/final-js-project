@@ -183,6 +183,7 @@ class Wrapper extends HTMLElement {
 			.then (response => response.json())
 		customElements.whenDefined("todo-elem")
 			.then (() => {
+				document.body.addEventListener("myEvent", this.listen.bind(this))
 				if (userData === []) return
 				for (let item of userData.content){
 					let card = this.wrapper.appendChild(
@@ -195,8 +196,8 @@ class Wrapper extends HTMLElement {
 						card.input.dispatchEvent(new Event("change"))
 					}
 				}
+				this.btnSave.style.border = "3px solid #F1FFE7"
 			})
-		document.body.addEventListener("myEvent", this.listen.bind(this))
 	}
 }
 

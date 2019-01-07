@@ -10,24 +10,7 @@
   "data": [
     {
       "userId": 1546822951123,
-      "content": [
-        {
-          "listName": "point to when",
-          "events": []
-        },
-        {
-          "listName": "point to when",
-          "events": [
-            "dsd",
-            "ds",
-            "dsdd"
-          ]
-        },
-        {
-          "listName": "point to when",
-          "events": []
-        }
-      ]
+      "content": []
     }
   ]
 }

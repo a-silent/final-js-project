@@ -125,7 +125,7 @@ class Todo extends HTMLElement {
 			elem.oncontextmenu = event => {
 				event.preventDefault()
 				this.card.content.events.splice(
-					this.card.content.events.indexOf(event.target.value), 1
+					this.card.content.events.indexOf(event.target.innerText), 1
 				)
 				event.target.remove()
 				document.body.dispatchEvent(new Event("myEvent"))

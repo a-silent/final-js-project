@@ -1,5 +1,4 @@
-(function () {
-	let user
+(async function () {
 	let promises = [
 		customElements.whenDefined("todo-elem"),
 		customElements.whenDefined("welcome-elem"),
@@ -13,7 +12,7 @@
 		)
 	}
 	
-	(async function cookiesCheck () {
+	function cookiesCheck () {
 		let res = document.cookie
 			.split ( "; " )
 			.map (
@@ -24,16 +23,20 @@
 					return elem
 				}
 			)
-		let cookie = Object.assign ( {}, ...res )
-		let users = await fetch ("http://localhost:3000/users")
-			.then (response => response.json())
-		user = users.find(
-			user => {
-				return user.email === cookie.e &&
-					user.password === cookie.p
-			}
-		)
-	})()
+		return Object.assign ( {}, ...res )
+	}
+	
+	let cookie = cookiesCheck()
+	
+	let users = await fetch ("http://localhost:3000/users")
+		.then (response => response.json())
+	
+	let user = users.find(
+		user => {
+			return user.email === cookie.e &&
+				user.password === cookie.p
+		}
+	)
 	
 	Promise.all(promises)
 		.then (() => {

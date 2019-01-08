@@ -1,60 +1,52 @@
 {
   "users": [
     {
-      "name": "aaa",
-      "email": "aaa",
-      "password": "9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0",
-      "userId": 1546915723618
+      "name": "Silent",
+      "email": "silent@gmail.com",
+      "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
+      "userId": 1546963718854
     },
     {
-      "name": "bbb",
-      "email": "bbb",
-      "password": "3e744b9dc39389baf0c5a0660589b8402f3dbb49b89b3e75f2c9355852a3c677",
-      "userId": 1546916962107
-    },
-    {
-      "name": "zzz",
-      "email": "zzz",
-      "password": "17f165d5a5ba695f27c023a83aa2b3463e23810e360b7517127e90161eebabda",
-      "userId": 1546953340271
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
+      "userId": 1546967351931
     }
   ],
   "data": [
     {
-      "userId": 1546915723618,
+      "userId": 1546963718854,
       "content": [
         {
           "listName": "Important!",
           "events": [
-            "купить хлеб",
-            "сделать проэкт"
+            "оплатить комуналку",
+            "сделать проект",
+            "вынести мусор"
           ]
         },
         {
-          "listName": "123",
+          "listName": "на следующий год",
           "events": [
-            "1",
-            "4",
-            "6",
-            "f",
-            "g"
+            "бросить курить",
+            "купить велосипед"
           ]
         }
       ]
     },
     {
-      "userId": 1546916962107,
-      "content": []
-    },
-    {
-      "userId": 1546953340271,
+      "userId": 1546967351931,
       "content": [
         {
-          "listName": "test",
+          "listName": "Important!",
           "events": [
-            "1",
-            "2",
-            "3"
+            "оплатить комуналку"
+          ]
+        },
+        {
+          "listName": "на завтра",
+          "events": [
+            "купить хлеб"
           ]
         }
       ]

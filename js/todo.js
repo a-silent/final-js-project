@@ -44,12 +44,12 @@ class Todo extends HTMLElement {
 			
 			ol {
 				padding: 0;
-				margin: 0  5px 5px 5px
+				margin: 0  5px 5px 5px;
 			}
 			
 			li {
 				border-bottom: 1px dashed #fff;
-				list-style-position:inside;
+				list-style-position: inside;
 				padding: 8px 0;
 			}
 			
@@ -89,12 +89,12 @@ class Todo extends HTMLElement {
 		`
 
 		this.dayHeader = this.createElem ("h2", this.card)
-		this.dayHeader.innerText = "point to when"
+		this.dayHeader.innerText = "-- date --"
 		this.dayHeader.contentEditable = "true"
 		this.dayHeader.onfocus = event =>
 			event.target.innerText = null
 		this.dayHeader.onblur = event => {
-			event.target.innerText = event.target.innerText || "Important"
+			event.target.innerText = event.target.innerText || "Important!"
 			this.card.content.listName = event.target.innerText
 			document.body.dispatchEvent(new Event("myEvent"))
 		}
@@ -122,6 +122,14 @@ class Todo extends HTMLElement {
 			this.card.content.events.push(event.target.value)
 			document.body.dispatchEvent(new Event("myEvent"))
 			event.target.value = null
+			elem.oncontextmenu = event => {
+				event.preventDefault()
+				this.card.content.events.splice(
+					this.card.content.events.indexOf(event.target.value), 1
+				)
+				event.target.remove()
+				document.body.dispatchEvent(new Event("myEvent"))
+			}
 		}
 		
 		this.list = this.createElem("ol", this.card)

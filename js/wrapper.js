@@ -135,7 +135,7 @@ class Wrapper extends HTMLElement {
 						display: "inline-block",
 						opacity: 1,
 						top: 0,
-						ease: Back.easeOut
+						ease: Power4.easeOut
 					} )
 				document.body.dispatchEvent(new Event("myEvent"))
 			})

@@ -152,7 +152,6 @@ class Todo extends HTMLElement {
 				this.card.content.events.splice(
 					this.card.content.events.indexOf(event.target.parentElement.parentElement.innerText), 1
 				)
-				console.dir (event.target)
 				event.target.parentElement.parentElement.remove()
 				document.body.dispatchEvent(new Event("myEvent"))
 			}

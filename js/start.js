@@ -1,4 +1,5 @@
 (function () {
+	let user
 	let promises = [
 		customElements.whenDefined("todo-elem"),
 		customElements.whenDefined("welcome-elem"),
@@ -24,7 +25,7 @@
 		let cookie = Object.assign ( {}, ...res )
 		let users = await fetch ("http://localhost:3000/users")
 			.then (response => response.json())
-		return users.find(
+		user = users.find(
 			user => {
 				return user.email === cookie.e &&
 					user.password === cookie.p
@@ -34,7 +35,7 @@
 	
 	Promise.all(promises)
 		.then (() => {
-			if (!cookiesCheck()) {
+			if (!user) {
 				let welcome = document.body.appendChild(
 					document.createElement("welcome-elem")
 				)

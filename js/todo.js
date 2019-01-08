@@ -8,7 +8,7 @@ class Todo extends HTMLElement {
 			document.createElement("style")
 		)
 		style.textContent = `
-			@import "/js-course/css/icomoon.css";
+			@import "/projectJS/css/icomoon.css";
 		
 			* {
 				-webkit-box-sizing: border-box;
@@ -143,6 +143,7 @@ class Todo extends HTMLElement {
 			let elem = this.createElem("li", this.list)
 			elem.innerText = event.target.value
 			this.card.content.events.push(event.target.value)
+			
 			elem.appendChild(this.iconDelete)
 			document.body.dispatchEvent(new Event("myEvent"))
 			event.target.value = null

@@ -101,8 +101,10 @@ class Todo extends HTMLElement {
 			
 			li div span {
 				position: absolute;
+				left: 50%;
 			    top: 50%;
                 transform: translateY(-50%);
+                transform: translateX(-50%);
 			}
 		`
 

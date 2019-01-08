@@ -53,7 +53,7 @@ class Todo extends HTMLElement {
 			li {
 				border-bottom: 1px dashed #fff;
 				list-style-position: inside;
-				padding: 8px 0;
+				padding: 8px 30px 8px 0;
 				position: relative;
 			}
 			
@@ -100,8 +100,9 @@ class Todo extends HTMLElement {
 			}
 			
 			li div span {
-				line-height: 100%;
-			}
+				position: absolute;
+			    top: 0;
+			    bottom: 0;
 		`
 
 		this.dayHeader = this.createElem ("h2", this.card)

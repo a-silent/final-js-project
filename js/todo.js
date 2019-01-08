@@ -53,7 +53,7 @@ class Todo extends HTMLElement {
 			li {
 				border-bottom: 1px dashed #fff;
 				list-style-position: inside;
-				padding: 8px 30px 8px 0;
+				padding: 10px 35px 10px 0;
 				position: relative;
 			}
 			
@@ -99,7 +99,6 @@ class Todo extends HTMLElement {
 				top: 0;
 				right: 0;
 				height: 100%;
-				vertical-align: middle;
 			}
 			
 			li div:hover {
@@ -108,7 +107,7 @@ class Todo extends HTMLElement {
 			}
 			
 			li div span {
-				font-size: 25px;
+				font-size: 33px;
 				display: inline-block;
 			}
 		`

@@ -90,13 +90,18 @@ class Todo extends HTMLElement {
 				transition: all 0s;
 			}
 			
-			#iconDelete {
+			.iconDelete {
+				cursor: pointer;
 				float: right;
 				height: 100%;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
+			}
+			
+			.iconDelete span {
+				vertical-align: bottom;
 			}
 		`
 
@@ -118,7 +123,7 @@ class Todo extends HTMLElement {
 		}
 		
 		this.iconDelete = document.createElement("div")
-		this.iconDelete.id = "iconDelete"
+		this.iconDelete.class = "iconDelete"
 		this.iconDelete.innerHTML = "<span class='icon-cancel-circle'></span>"
 		this.iconDelete.onclick = event => {
 			// this.card.content.events.splice(

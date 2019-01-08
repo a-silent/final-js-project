@@ -8,7 +8,7 @@ class Todo extends HTMLElement {
 			document.createElement("style")
 		)
 		style.textContent = `
-			@import "/css/icomoon.css";
+			@import "/js-course/css/icomoon.css";
 		
 			* {
 				-webkit-box-sizing: border-box;

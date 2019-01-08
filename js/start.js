@@ -1,32 +1,23 @@
+function cookiesCheck () {
+	let res = document.cookie
+		.split ( "; " )
+		.map (
+			x => {
+				let tmp = x.split ( "=" )
+				let elem = {}
+				elem [ tmp [0] ] = tmp [1]
+				return elem
+			}
+		)
+	return Object.assign ( {}, ...res )
+}
+
 (async function () {
 	let promises = [
 		customElements.whenDefined("todo-elem"),
 		customElements.whenDefined("welcome-elem"),
 		customElements.whenDefined("wrapper-elem")
 	]
-	
-	// window.onhashchange = () => {
-	// 	if ( !(location.hash === "#todo") ) {
-	// 		return
-	// 	}
-	// 	document.body.appendChild(
-	// 		document.createElement("wrapper-elem")
-	// 	)
-	// }
-	
-	function cookiesCheck () {
-		let res = document.cookie
-			.split ( "; " )
-			.map (
-				x => {
-					let tmp = x.split ( "=" )
-					let elem = {}
-					elem [ tmp [0] ] = tmp [1]
-					return elem
-				}
-			)
-		return Object.assign ( {}, ...res )
-	}
 	
 	let cookie = cookiesCheck()
 	

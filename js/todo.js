@@ -99,11 +99,16 @@ class Todo extends HTMLElement {
 				top: 0;
 				right: 0;
 				height: 100%;
-				cursor: pointer;
 				vertical-align: middle;
 			}
 			
+			li div:hover {
+				cursor: pointer;
+				color: red;
+			}
+			
 			li div span {
+				font-size: 25px;
 				display: inline-block;
 			}
 		`
@@ -144,11 +149,11 @@ class Todo extends HTMLElement {
 			let iconDelete = this.createElem("div", elem)
 			iconDelete.innerHTML = "<span class='icon-cancel-circle'></span>"
 			iconDelete.onclick = event => {
-				// this.card.content.events.splice(
-				// 	this.card.content.events.indexOf(event.target.innerText), 1
-				// )
+				this.card.content.events.splice(
+					this.card.content.events.indexOf(event.target.parentElement.parentElement.innerText), 1
+				)
 				console.dir (event.target)
-				//event.target.remove()
+				event.target.parentElement.parentElement.remove()
 				document.body.dispatchEvent(new Event("myEvent"))
 			}
 			

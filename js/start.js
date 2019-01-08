@@ -5,14 +5,14 @@
 		customElements.whenDefined("wrapper-elem")
 	]
 	
-	window.onhashchange = () => {
-		if ( !(location.hash === "#todo") ) {
-			return
-		}
-		document.body.appendChild(
-			document.createElement("wrapper-elem")
-		)
-	}
+	// window.onhashchange = () => {
+	// 	if ( !(location.hash === "#todo") ) {
+	// 		return
+	// 	}
+	// 	document.body.appendChild(
+	// 		document.createElement("wrapper-elem")
+	// 	)
+	// }
 	
 	function cookiesCheck () {
 		let res = document.cookie

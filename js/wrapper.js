@@ -40,7 +40,7 @@ class Wrapper extends HTMLElement {
 				-khtml-user-select: none;
 				user-select: none;
 				min-width: 200px;
-				padding: 10px 20px;
+				padding: 10px 0;
 				border: 3px solid #F1FFE7;
 				outline: none;
 				font-size: 25px;

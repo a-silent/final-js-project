@@ -9,7 +9,7 @@
 	window.onhashchange = () => {
 		if ( !(location.hash === "#todo") ) return
 		document.body.appendChild(
-			document.createElement("todo-elem")
+			document.createElement("wrapper-elem")
 		)
 	}
 	

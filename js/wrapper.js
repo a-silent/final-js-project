@@ -86,6 +86,7 @@ class Wrapper extends HTMLElement {
 		this.btnSave.onclick = this.saveCards.bind(this)
 		
 		this.btnExit = this.createElem("button", this.buttons)
+		this.btnExit.innerText = "Exit"
 		this.btnExit.onclick = this.exit.bind(this)
 		
 		this.wrapper = this.createElem("div", this.container)

@@ -181,7 +181,9 @@ class Wrapper extends HTMLElement {
 		)
 		if (!user) {
 			this.remove()
-			location.href = "https://a-silent.github.io/projectJS/"
+			document.body.appendChild(
+				document.createElement("welcome-elem")
+			)
 			return
 		}
 		location.hash = "todo"

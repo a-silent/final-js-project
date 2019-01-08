@@ -48,6 +48,8 @@
 				)
 				return
 			}
-			location.hash = "todo"
+			document.body.appendChild(
+				document.createElement("wrapper-elem")
+			)
 		})
 })()

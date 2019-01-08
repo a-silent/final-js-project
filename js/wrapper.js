@@ -72,7 +72,7 @@ class Wrapper extends HTMLElement {
 			}
 		`
 		
-		this._listen = this.listen().bind(this)
+		this._listen = this.listen.bind(this)
 		
 		this.buttons = this.createElem("div", this.container)
 		this.buttons.id = "buttons"

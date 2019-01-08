@@ -8,6 +8,8 @@ class Todo extends HTMLElement {
 			document.createElement("style")
 		)
 		style.textContent = `
+			@import "/css/icomoon.css";
+		
 			* {
 				-webkit-box-sizing: border-box;
                 -moz-box-sizing: border-box;
@@ -86,6 +88,15 @@ class Todo extends HTMLElement {
 				color: #213051;
 				transition: all 0s;
 			}
+			
+			#iconDelete {
+				float: right;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
 		`
 
 		this.dayHeader = this.createElem ("h2", this.card)
@@ -105,6 +116,18 @@ class Todo extends HTMLElement {
 			}
 		}
 		
+		this.iconDelete = document.createElement("div")
+		this.iconDelete.id = "iconDelete"
+		this.iconDelete.innerHTML = "<span class='icon-cancel-circle'></span>"
+		this.iconDelete.onclick = event => {
+			// this.card.content.events.splice(
+			// 	this.card.content.events.indexOf(event.target.innerText), 1
+			// )
+			console.dir (event.target)
+			//event.target.remove()
+			document.body.dispatchEvent(new Event("myEvent"))
+		}
+		
 		this.card.content = {
 			listName: this.dayHeader.innerText,
 			events: []
@@ -120,16 +143,9 @@ class Todo extends HTMLElement {
 			let elem = this.createElem("li", this.list)
 			elem.innerText = event.target.value
 			this.card.content.events.push(event.target.value)
+			elem.appendChild(this.iconDelete)
 			document.body.dispatchEvent(new Event("myEvent"))
 			event.target.value = null
-			elem.oncontextmenu = event => {
-				event.preventDefault()
-				this.card.content.events.splice(
-					this.card.content.events.indexOf(event.target.innerText), 1
-				)
-				event.target.remove()
-				document.body.dispatchEvent(new Event("myEvent"))
-			}
 		}
 		
 		this.list = this.createElem("ol", this.card)

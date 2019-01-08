@@ -72,18 +72,21 @@ class Wrapper extends HTMLElement {
 			}
 		`
 		
+		this._listen = this.listen().bind(this)
+		
 		this.buttons = this.createElem("div", this.container)
 		this.buttons.id = "buttons"
 		
 		this.btnAdd = this.createElem("button", this.buttons)
-		this.btnAdd.id = "btnAdd"
 		this.btnAdd.innerText = "Add card"
 		this.btnAdd.onclick = this.addCard.bind(this)
 		
 		this.btnSave = this.createElem("button", this.buttons)
-		this.btnSave.id = "btnSave"
 		this.btnSave.innerText = "Save all"
 		this.btnSave.onclick = this.saveCards.bind(this)
+		
+		this.btnExit = this.createElem("button", this.buttons)
+		this.btnExit.onclick = this.exit.bind(this)
 		
 		this.wrapper = this.createElem("div", this.container)
 		this.wrapper.id = "wrapper"
@@ -116,6 +119,18 @@ class Wrapper extends HTMLElement {
 	
 	listen () {
 		this.btnSave.style.color = "red"
+	}
+	
+	exit () {
+		let date = new Date(0);
+		document.cookie = "e=; expires=" + date.toUTCString();
+		document.cookie = "p=; expires=" + date.toUTCString();
+		document.body.removeEventListener("myEvent", this._listen)
+		this.remove()
+		document.body.appendChild(
+			document.createElement("welcome-elem")
+		)
+		
 	}
 	
 	addCard () {
@@ -187,7 +202,7 @@ class Wrapper extends HTMLElement {
 			return
 		}
 		location.hash = "todo"
-		document.body.addEventListener("myEvent", this.listen.bind(this))
+		document.body.addEventListener("myEvent", this._listen)
 		let userData = await fetch (`http://localhost:3000/data/${user.userId}`)
 			.then (response => response.json())
 		customElements.whenDefined("todo-elem")

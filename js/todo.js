@@ -103,6 +103,8 @@ class Todo extends HTMLElement {
 				position: absolute;
 			    top: 0;
 			    bottom: 0;
+			    margin: auto 0;
+			}
 		`
 
 		this.dayHeader = this.createElem ("h2", this.card)

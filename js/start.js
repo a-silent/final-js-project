@@ -6,7 +6,10 @@
 	]
 	
 	window.onhashchange = () => {
-		if ( !(location.hash === "#todo") ) return
+		if ( !(location.hash === "#todo") ) {
+			location.href = "https://a-silent.github.io/projectJS/"
+			return
+		}
 		document.body.appendChild(
 			document.createElement("wrapper-elem")
 		)

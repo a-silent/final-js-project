@@ -41,6 +41,7 @@
 				document.body.appendChild(
 					document.createElement("welcome-elem")
 				)
+				return
 			}
 			location.hash = "todo"
 		})

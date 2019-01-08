@@ -122,18 +122,6 @@ class Todo extends HTMLElement {
 			}
 		}
 		
-		this.iconDelete = document.createElement("div")
-		this.iconDelete.class = "iconDelete"
-		this.iconDelete.innerHTML = "<span class='icon-cancel-circle'></span>"
-		this.iconDelete.onclick = event => {
-			// this.card.content.events.splice(
-			// 	this.card.content.events.indexOf(event.target.innerText), 1
-			// )
-			console.dir (event.target)
-			//event.target.remove()
-			document.body.dispatchEvent(new Event("myEvent"))
-		}
-		
 		this.card.content = {
 			listName: this.dayHeader.innerText,
 			events: []
@@ -150,7 +138,18 @@ class Todo extends HTMLElement {
 			elem.innerText = event.target.value
 			this.card.content.events.push(event.target.value)
 			
-			elem.appendChild(this.iconDelete)
+			let iconDelete = this.createElem("div", elem)
+			iconDelete.class = "iconDelete"
+			iconDelete.innerHTML = "<span class='icon-cancel-circle'></span>"
+			iconDelete.onclick = event => {
+				// this.card.content.events.splice(
+				// 	this.card.content.events.indexOf(event.target.innerText), 1
+				// )
+				console.dir (event.target)
+				//event.target.remove()
+				document.body.dispatchEvent(new Event("myEvent"))
+			}
+			
 			document.body.dispatchEvent(new Event("myEvent"))
 			event.target.value = null
 		}

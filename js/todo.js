@@ -12,63 +12,79 @@ class Todo extends HTMLElement {
 				-webkit-box-sizing: border-box;
                 -moz-box-sizing: border-box;
                 box-sizing: border-box;
-                font-size: 20px;
-			}
-			
-			article,
-			h2,
-			input,
-			div,
-			section {
-				border-radius: 5px;
+                font-size: 25px;
 			}
 			
 			div {
-				display: inline-block;
-				max-width: 270px;
-				padding: 10px 10px 5px 10px;
-				border: 1px dotted #8AB185;
-				background-color: #F2F7F3;
-				margin: 10px;
+				max-width: 300px;
 				position: relative;
+				margin: 10px;
+				background-color: rgba(255,255,255,0.4);
+				border: 1px solid #fff;
+				box-shadow: 5px 5px 15px #213051;
 			}
 			
 			h2 {
-				text-align: center;
-				border: 1px solid #8AB185;
-				background-color: #B3C8CD;
+				background-color: #213051;
+				padding: 10px;
+				margin: 0 0 5px 0;
 				color: #fff;
-				text-shadow: 3px 3px 5px #95CA00;
-				letter-spacing: 0.1em;
-				margin: 0 0 10px 0;
-				outline: none;
-				font-size: 25px;
-				padding: 5px;
+				text-align: center;
+				font-size: 30px;
 			}
 			
 			input {
-				width: 100%;
-				margin-bottom: 5px;
+				width: calc(100% - 10px);
+				margin: 0 5px 5px 5px;
 				padding: 8px;
-				
-				border: 1px solid transparent;
+				background: linear-gradient(to top, #D1E5BE, #fff);
+				border: none;
 				outline: none;
-				border-radius: 5px;
-				background: #fff linear-gradient(to top, #D1E5BE, #fff);
 			}
 			
-			p {
-				padding: 5px 10px 5px 5px;
-				border-bottom: 1px dotted #8AB185;
-				background-color: #F2F7F3;
-				margin: 0 0 5px 0;
+			ol {
+				padding: 0;
+				margin: 0  5px 5px 5px
+			}
+			
+			li {
+				border-bottom: 1px dashed #fff;
+				list-style-position:inside;
+				padding: 8px 0;
+			}
+			
+			li:last-child {
+				border-bottom: none;
 			}
 			
 			button {
+				-moz-user-select: none;
+				-khtml-user-select: none;
+				user-select: none;
+				width: calc(100% - 10px);
+				margin: 0 5px 5px 5px;
+				padding: 5px 0;
+				font-size: 20px;
+				outline: none;
 				
-				min-width: 100%;
-				padding: 5px;
-				
+				border: 2px solid #F1FFE7;
+				background-color: #213051;
+				color: #F1FFE7;
+				letter-spacing: 0.03em;
+				transition: all 0.5s;
+				opacity: 0.8;
+			}
+			
+			button:hover {
+				letter-spacing: 0.1em;
+				transform: scale(1.02);
+				cursor: pointer;
+			}
+			
+			button:active {
+				background-color: #F1FFE7;
+				color: #213051;
+				transition: all 0s;
 			}
 		`
 
@@ -101,12 +117,14 @@ class Todo extends HTMLElement {
 				this.card.content.events.includes(event.target.value) ||
 				event.target.value === ""
 			) return
-			let elem = this.createElem("p", this.card)
+			let elem = this.createElem("li", this.list)
 			elem.innerText = event.target.value
 			this.card.content.events.push(event.target.value)
 			document.body.dispatchEvent(new Event("myEvent"))
 			event.target.value = null
 		}
+		
+		this.list = this.createElem("ol", this.card)
 		
 		this.deleteCard = this.createElem("button", this.card)
 		this.deleteCard.innerText = "Remove card"

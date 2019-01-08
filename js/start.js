@@ -13,7 +13,7 @@
 		)
 	}
 	
-	async function cookiesCheck () {
+	(async function cookiesCheck () {
 		let res = document.cookie
 			.split ( "; " )
 			.map (
@@ -33,7 +33,7 @@
 					user.password === cookie.p
 			}
 		)
-	}
+	})()
 	
 	Promise.all(promises)
 		.then (() => {

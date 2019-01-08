@@ -6,9 +6,11 @@
 		customElements.whenDefined("wrapper-elem")
 	]
 	
-	window.onhashchange = event => {
+	window.onhashchange = () => {
 		if ( !(location.hash === "todo") ) return
-		document.body.appendChild("todo-elem")
+		document.body.appendChild(
+			document.createElement("todo-elem")
+		)
 	}
 	
 	async function cookiesCheck () {

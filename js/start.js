@@ -7,7 +7,7 @@
 	]
 	
 	window.onhashchange = () => {
-		if ( !(location.hash === "todo") ) return
+		if ( !(location.hash === "#todo") ) return
 		document.body.appendChild(
 			document.createElement("todo-elem")
 		)
@@ -38,7 +38,7 @@
 	Promise.all(promises)
 		.then (() => {
 			if (!user) {
-				let welcome = document.body.appendChild(
+				document.body.appendChild(
 					document.createElement("welcome-elem")
 				)
 			}

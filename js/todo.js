@@ -93,18 +93,18 @@ class Todo extends HTMLElement {
 			
 			li div {
 				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				top: 0;
 				right: 0;
 				height: 100%;
 				cursor: pointer;
+				vertical-align: middle;
 			}
 			
 			li div span {
-				position: absolute;
-				left: 50%;
-			    top: 50%;
-                transform: translateY(-50%);
-                transform: translateX(-50%);
+				display: inline-block;
 			}
 		`
 

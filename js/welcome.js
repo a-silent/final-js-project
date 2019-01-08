@@ -300,8 +300,11 @@ class Welcome extends HTMLElement {
 		}
 		document.cookie = `e=${email}`
 		document.cookie = `p=${pswd}`
-		location.hash = "todo"
 		this.remove()
+		customElements.whenDefined("wrapper-elem")
+			.then (() => document.body.appendChild(
+				document.createElement("wrapper-elem")
+			))
 	}
 }
 

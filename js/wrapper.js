@@ -179,7 +179,12 @@ class Wrapper extends HTMLElement {
 					user.password === cookie.p
 			}
 		)
-		if (!user) return
+		if (!user) {
+			this.remove()
+			location.href = "https://a-silent.github.io/projectJS/"
+			return
+		}
+		location.hash = "todo"
 		document.body.addEventListener("myEvent", this.listen.bind(this))
 		let userData = await fetch (`http://localhost:3000/data/${user.userId}`)
 			.then (response => response.json())

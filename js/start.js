@@ -9,7 +9,6 @@
 		if ( !(location.hash === "#todo") ) {
 			return
 		}
-		location.href = "https://a-silent.github.io/projectJS/"
 		document.body.appendChild(
 			document.createElement("wrapper-elem")
 		)

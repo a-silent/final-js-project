@@ -54,6 +54,7 @@ class Todo extends HTMLElement {
 				border-bottom: 1px dashed #fff;
 				list-style-position: inside;
 				padding: 8px 0;
+				position: relative;
 			}
 			
 			li:last-child {
@@ -91,17 +92,15 @@ class Todo extends HTMLElement {
 			}
 			
 			li div {
-				cursor: pointer;
-				float: right;
+				position: absolute;
+				top: 0;
+				right: 0;
 				height: 100%;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
+				cursor: pointer;
 			}
 			
 			li div span {
-				vertical-align: bottom;
+				line-height: 100%;
 			}
 		`
 

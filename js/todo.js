@@ -2,6 +2,7 @@ class Todo extends HTMLElement {
 	constructor () {
 		super()
 		this.card = this.createElem("div")
+		this.card.id = "main"
 		let shadow = this.attachShadow({mode: "open"})
 		shadow.appendChild( this.card )
 		let style = shadow.appendChild(
@@ -17,7 +18,7 @@ class Todo extends HTMLElement {
                 font-size: 25px;
 			}
 			
-			div {
+			#main {
 				max-width: 300px;
 				position: relative;
 				margin: 10px;

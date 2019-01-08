@@ -1,26 +1,16 @@
 {
   "users": [
     {
-      "name": "Andrii",
-      "email": "andrii@gmail.com",
-      "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
-      "userId": 1546822951123
+      "name": "aaa",
+      "email": "aaa",
+      "password": "9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0",
+      "userId": 1546913941579
     }
   ],
   "data": [
     {
-      "userId": 1546822951123,
-      "content": [
-        {
-          "listName": "-- date --",
-          "events": [
-            "1",
-            "2",
-            "3",
-            "4"
-          ]
-        }
-      ]
+      "userId": 1546913941579,
+      "content": []
     }
   ]
 }

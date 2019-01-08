@@ -288,7 +288,8 @@ class Welcome extends HTMLElement {
 		let users = await fetch("http://localhost:3000/users")
 			.then (response => response.json())
 		let user = users.find(
-			user => user.email === this.inputEmail.value.trim()
+			user => return user.email === email &&
+				user.password === pswd
 		)
 		if (!user) {
 			this.btnReg.dispatchEvent(new Event ("click"))

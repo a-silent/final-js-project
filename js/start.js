@@ -7,9 +7,9 @@
 	
 	window.onhashchange = () => {
 		if ( !(location.hash === "#todo") ) {
-			location.href = "https://a-silent.github.io/projectJS/"
 			return
 		}
+		location.href = "https://a-silent.github.io/projectJS/"
 		document.body.appendChild(
 			document.createElement("wrapper-elem")
 		)

@@ -1,8 +1,6 @@
 # projectJS
 
-This project is result 3 month learning of Native JavaScript in A-level school.
-
-Project based on WEB-component.
+ToDo list project based on WEB-component.
 
 For start project needs:
 
